@@ -28,4 +28,8 @@ function startTimer() {
     }, 1000);
 }
 
+var resetButton = document.querySelector(".reset-button");
+function resetGame()
+
+
 startButton.addEventListener("click", startGame);
