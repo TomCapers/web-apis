@@ -1,23 +1,40 @@
 var timerElement = document.querySelector(".timer-count");
 var startButton = document.querySelector(".start-button");
+var startButton = document.getElementById("question");
 
 var timerCount;
 var timer;
 var winCounter = 0;
 var loseCounter = 0;
 var isWin = false;
+var qAndA = [
+  {
+  question: "Words that start with Java",
+  choiceA: "LikeSomeJava",
+  choiceB: "LoveSomeJava",
+  choiceC: "iLikeCoffee",
+  choiceD: "JavaScript",
+  },
+  {question: "Words that end with Java",
+  choiceA: "JavaLikeSome",
+  choiceB: "JavaLoveSome",
+  choiceC: "iLikeCoffee",
+  choiceD: "ScriptLikeUwannaJava",
+  }
+]
 
-// Start Game function
+
+
 function startGame() {
-    isWin = false;
+    
     timerCount = 60;
     
     startTimer()
   }
 
-// Timer Function
+
 function startTimer() {
-        timer = setInterval(function() {
+      timer = setInterval(function() {
       timerCount--;
       timerElement.textContent = timerCount;
       if (timerCount === 0) {
@@ -28,6 +45,12 @@ function startTimer() {
     }, 1000);
 }
 
+//function addQuestion(){
+  //question = qAndA.question;
+  //for (var i = 0; i < qAndA.length; i++){
+
+ // }
+//}
 var resetButton = document.querySelector(".reset-button");
 function resetGame()
 
