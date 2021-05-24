@@ -1,36 +1,35 @@
+var body = document.body;
 var timerElement = document.querySelector(".timer-count");
 var startButton = document.querySelector(".start-button");
-var startButton = document.getElementById("question");
+var questionArea = document.createElement("div");
+var answerArea = document.createElement("div");
+
+body.appendChild(questionArea);
+questionArea.appendChild(answerArea);
 
 var timerCount;
 var timer;
 var winCounter = 0;
 var loseCounter = 0;
 var isWin = false;
-var qAndA = [
-  {
-  question: "Words that start with Java",
-  choiceA: "LikeSomeJava",
-  choiceB: "LoveSomeJava",
-  choiceC: "iLikeCoffee",
-  choiceD: "JavaScript",
-  },
-  {question: "Words that end with Java",
-  choiceA: "JavaLikeSome",
-  choiceB: "JavaLoveSome",
-  choiceC: "iLikeCoffee",
-  choiceD: "ScriptLikeUwannaJava",
-  }
-]
+var qS = ["What word starts with Java?", "What word ends with Java?"];
+var choiceA = ["LikeSomeJava", "JavaLikeSome"];
+var choiceB = ["LoveSomeJava", "JavaLoveSome"];
+var choiceC = ["iLikeCoffee", "iLikeCoffee"];
+var choiceD = ["JavaScript", "ScriptLikeUwannaJava"];
+  
 
 
 
 function startGame() {
-    
-    timerCount = 60;
-    
-    startTimer()
-  }
+  isWin = false;
+  timerCount = 60;
+  startButton.disabled = true;  
+  startTimer();
+  addQuestion();
+
+  console.log(startGame);
+}
 
 
 function startTimer() {
@@ -45,14 +44,38 @@ function startTimer() {
     }, 1000);
 }
 
-//function addQuestion(){
-  //question = qAndA.question;
-  //for (var i = 0; i < qAndA.length; i++){
+function addQuestion(){
 
- // }
-//}
-var resetButton = document.querySelector(".reset-button");
-function resetGame()
+  var question1 = document.createElement("div");
+  question1.textContent = qS[0];
+  questionArea.appendChild(question1);
+
+  var btn1 = document.createElement("button");
+  btn1.textContent = choiceA[0];
+  question1.appendChild(btn1);
+
+  var btn2 = document.createElement("button");
+  btn2.textContent = choiceB[0];
+  question1.appendChild(btn2);
+
+  var btn3 = document.createElement("button");
+  btn3.textContent = choiceC[0];
+  question1.appendChild(btn3);
+
+  var btn4 = document.createElement("button");
+  btn4.textContent = choiceD[0];
+  question1.appendChild(btn4);
+
+
+}
+  //for (var i = 0; i < qAndA.length; i++){
+  //  questionArea.textContent = qAndA[i];
+  //  console.log(qAndA);
+
+//  }
+
+//var resetButton = document.querySelector(".reset-button");
+//function resetGame()
 
 
 startButton.addEventListener("click", startGame);
